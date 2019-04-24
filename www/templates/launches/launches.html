@@ -1,0 +1,30 @@
+<ion-view view-title="Launches">
+    <ion-content>
+        <ion-refresher
+            pulling-text="Pull to refresh..."
+            on-refresh="refresh()">
+        </ion-refresher>
+        <ion-list>
+            <!-- Disabled the message as there are a few hidden items and i dont think poeple need to be told -->
+            <!-- <li class="item item-divider">
+              <center>Pull Down to Refresh</center>
+            </li> -->
+            <ion-item ng-repeat="l in launches" class="item-thumbnail-left item-text-wrap">
+                <div ui-sref="app.details({id: l.id})">
+                  <img cachedimage class="image-adjust img-content" ng-src="{{imageSize(l.rocket.imageURL, 320)}}"></img>
+                  <h2>{{l.name}}</h2>
+                  <span class="icon-space"><i class="icon ln-calendar3"></i></span><span class="font-light">{{l.isonet | amUtc | amLocal | amDateFormat:'ddd Do MMM, YYYY'}}</span>
+                  <br>
+                  <span class="icon-space"><i class="icon ln-timer"></i></span><span class="font-light">{{l.isonet | amUtc | amLocal | amDateFormat:'h:mm a'}} (<time am-time-ago="l.isonet"></time>)</span>
+                  <span class="item-icon-right"><i class="icon ln-rocket small"></i></span>
+                </div>
+                <ion-option-button class="button-calm" ng-if="l.vidURLs[0]" ng-click="linkExternal(l.vidURLs[0])">
+                    Stream
+                </ion-option-button>
+                <ion-option-button class="button-positive" ng-click="share(l)">
+                    Share
+                </ion-option-button>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

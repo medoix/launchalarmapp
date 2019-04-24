@@ -1,0 +1,64 @@
+/* Empty. Add your own CSS if you like */
+
+h4 {
+  color: #e42112;
+}
+
+.modal-image-parent {
+    /*position: relative;*/
+    overflow: hidden;
+}
+
+.modal-image-child {
+  position: absolute;
+  top: -9999px;
+  bottom: -9999px;
+  left: -9999px;
+  right: -9999px;
+  margin: auto;
+  min-height: 100%;
+  min-width: 100%;
+}
+
+.modal-image-parent img {
+    display: block;
+}
+
+.detail-image {
+  height: 80vh;
+  display: flex;          /* establish flex container */
+  flex-direction: column; /* stack flex items vertically */
+  position: relative;     /* establish nearest positioned ancestor for abs.positioning */
+  font-weight: bold;
+  color: #FFFFFF;
+  text-shadow: 0px 0px 3px #000, -1px -1px #000, 1px 1px #000;
+  bottom: 10px;
+}
+
+.detail-image .launchtitle {
+  position: absolute;
+  left: 2%;                        /* horizontal alignment */
+  top: 80%;                         /* vertical alignment */
+  font-size: 18px;
+}
+
+.detail-image .localtime {
+  position: absolute;
+  left: 2%;                        /* horizontal alignment */
+  top: 85%;                         /* vertical alignment */
+}
+
+.detail-image .utctime {
+  position: absolute;
+  left: 2%;                        /* horizontal alignment */
+  top: 90%;                         /* vertical alignment */
+}
+
+.detail-image .launchmap {
+  position: absolute;
+  left: 2%;                        /* horizontal alignment */
+  top: 95%;                         /* vertical alignment */
+}
+
+.card .item-about {
+  padding: 15px; }

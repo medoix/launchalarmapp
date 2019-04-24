@@ -1,0 +1,74 @@
+<ion-view class="login-bg">
+    <ion-content>
+        <div class="login-logo light" ng-click="resize();">
+            Launch <span class="bold positive">Alarm</span>
+        </div>
+        <div class="login-tab">
+            <div class="button-bar">
+                <a class="button button-positive button-outline" ng-class="{'underline':tab=='signin'}" ng-click="tabchange('signin',1)"><span class="light">Sign In</span></a>
+                <a class="button button-positive button-outline" ng-class="{'underline':tab=='signup'}" ng-click="tabchange('signup',2)"><span class="light">Sign Up</span></a>
+            </div>
+            <div class="login" ng-show="tab=='signin'">
+                <div class="list">
+                    <label class="item item-input item-floating-label" ng-class="allvalidation[0].validation">
+                        <span class="input-label">Email</span>
+                        <i class="icon ln-user"></i>
+                        <input type="email" placeholder="Email" ng-model="signin.email">
+                    </label>
+                    <label class="item item-input item-floating-label" ng-class="allvalidation[1].validation">
+                        <span class="input-label">Password</span>
+                        <i class="icon ln-lock"></i>
+                        <input type="password" placeholder="Password" ng-model="signin.password">
+                    </label>
+                </div>
+                <div class="login-btn">
+                    <button class="button button-block button-positive" ng-click="signinsubmit(signin);">
+                        Sign In
+                    </button>
+                    <button class="button button-block button-positive" ng-click="launches();">
+                        Back to Launches
+                    </button>
+                    <!-- Disabled forgot password functionality for now as the back end does nt support it. -->
+                    <!-- <p class="light" ng-click="forgotpass()">Forgot password?</p> -->
+                </div>
+            </div>
+            <div class="login" ng-show="tab=='signup'">
+                <div class="list">
+                    <label class="item item-input item-floating-label" ng-class="allvalidation[1].validation">
+                        <span class="input-label">Email</span>
+                        <i class="icon ln-user"></i>
+                        <input type="email" placeholder="Email" ng-model="signup.email">
+                    </label>
+                    <!-- <label class="item item-input item-floating-label" ng-class="allvalidation[0].validation">
+                        <span class="input-label">Name</span>
+                        <i class="icon ln-user"></i>
+                        <input type="text" placeholder="Name" ng-model="signup.name">
+                    </label>
+                    <label class="item item-input item-floating-label" ng-class="allvalidation[2].validation">
+                        <span class="input-label">Date of Birth</span>
+                        <i class="icon ln-gift"></i>
+                        <input type="text" onfocus="(this.type='date')" placeholder="Date of Birth" ng-model="signup.dob">
+                    </label> -->
+                    <label class="item item-input item-floating-label" ng-class="allvalidation[2].validation">
+                        <span class="input-label">Password</span>
+                        <i class="icon ln-lock"></i>
+                        <input type="password" placeholder="Password" ng-model="signup.password">
+                    </label>
+                    <label class="item item-input item-floating-label" ng-class="allvalidation[3].validation">
+                        <span class="input-label">Password</span>
+                        <i class="icon ln-lock"></i>
+                        <input type="password" placeholder="Password" ng-model="signup.passwordconfirm">
+                    </label>
+                </div>
+                <div class="login-btn footer">
+                    <button class="button button-block button-positive" ng-click="signupsubmit(signup);">
+                        Sign up
+                    </button>
+                    <button class="button button-block button-positive" ng-click="launches();">
+                        Back to Launches
+                    </button>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

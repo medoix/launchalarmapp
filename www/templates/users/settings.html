@@ -1,0 +1,43 @@
+<ion-view view-title="Settings">
+    <ion-content>
+        <ul class="list">
+            <div class="item item-divider">
+              Notification Settings
+            </div>
+            <li class="item item-toggle">
+                Push Notifications (30 & 15 Min)
+                <label class="toggle toggle-positive">
+                    <input type="checkbox" ng-model="pushNotification.checked" ng-change="pushNotificationChange()">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+            <!-- <li class="item item-toggle">
+                Photos Notification
+                <label class="toggle toggle-positive">
+                    <input disabled type="checkbox" ng-model="setting.photonotification" ng-click="changeSetting(setting)">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+            <li class="item item-toggle">
+                Videos Notification
+                <label class="toggle toggle-positive">
+                    <input disabled type="checkbox" ng-model="setting.videonotification" ng-click="changeSetting(setting)">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li> -->
+            <div class="item item-divider">
+              Past Notifications
+            </div>
+            <li class="item item-text-wrap" ng-repeat="notification in notifications track by $index" type="item-content">
+              <p><b>{{notification.date}}</b></p>
+              <p>{{notification.msg}}</p>
+            </li>
+        </ul>
+    </ion-content>
+</ion-view>

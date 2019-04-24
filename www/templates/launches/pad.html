@@ -1,0 +1,22 @@
+<ion-view>
+  <ion-nav-title>Pad Details</ion-nav-title>
+  <ion-content class="scroll-bg">
+
+    <!-- Launch Detail Card -->
+    <div class="card">
+      <div class="item item-divider">
+        <h2>{{pads[0].name}}</h2>
+      </div>
+      <div class="item item-text-wrap">
+        <p ng-hide="pads[0].latitude == ''">Latitude: {{pads[0].latitude}}</p>
+        <p ng-hide="pads[0].longitude == ''">Longitude: {{pads[0].longitude}}</p>
+        <a class="button button-block button-positive" ng-hide="pads[0].latitude == '' || pads[0].longitude == ''" href="#" ng-click="openLink('https://maps.google.com/?q={{pads[0].latitude}},{{pads[0].longitude}}')">Map</a></p>
+        <!-- <a class="button button-block button-positive" ng-hide="pads[0].mapURL == ''" href="{{pads[0].mapURL}}" target="_system">Map</a></p> -->
+        <a class="button button-block button-positive" ng-hide="pads[0].infoURL == ''" href="#" onclick="window.open('{{pads[0].infoURL}}', '_system', 'location=yes'); return false;">Information</a></p>
+        <a class="button button-block button-positive" ng-hide="pads[0].wikiURL == ''" href="#" onclick="window.open('{{pads[0].wikiURL}}', '_system', 'location=yes'); return false;">Wikipedia</a></p>
+      </div>
+
+    </div>
+
+  </ion-content>
+</ion-view>

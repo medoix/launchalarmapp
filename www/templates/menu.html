@@ -1,0 +1,59 @@
+<ion-side-menus enable-menu-with-back-views="false" ng-controller="AppCtrl">
+    <ion-side-menu-content>
+        <ion-nav-bar class="bar-positive">
+            <ion-nav-back-button>
+            </ion-nav-back-button>
+            <ion-nav-buttons side="left">
+                <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+                </button>
+            </ion-nav-buttons>
+            <!-- <ion-nav-buttons side="right">
+                <button class="button button-icon button-clear ion-ios-shuffle" ui-sref="app.function">
+                </button>
+            </ion-nav-buttons> -->
+
+            <!-- Temporary disabled while releasing additional fixes -->
+            <!-- <ion-nav-buttons side="secondary">
+              <button class="button button-icon icon ion-ios-search-strong" ng-click="showFilterBar()">
+              </button>
+            </ion-nav-buttons> -->
+        </ion-nav-bar>
+        <ion-nav-view name="menuContent"></ion-nav-view>
+    </ion-side-menu-content>
+    <ion-side-menu side="left">
+      <ion-content ng-class="logo">
+        <div class="top-statusbar"></div>
+        <div class="list no-margin" ng-show="authenticated">
+            <ion-item class="item-avatar item-icon-right">
+                <img class="image-adjust" ng-src="img/user.jpg"></img>
+                <!-- <h3>{{userdetails.name}}</h3> -->
+                <h3 ng-if="userdetails.user.details.firstname">{{userdetails.user.details.firstname}} {{userdetails.user.details.lastname}}</h3>
+                <h3 ng-if="!userdetails.user.details.firstname">Launch Alarm User</h3>
+                <p ng-if="email">{{email}}</p>
+                <i class="icon ln-gear2 small" ui-sref="app.settings" menu-close></i>
+            </ion-item>
+        </div>
+        <!-- <ion-content ng-class="logso"> -->
+            <div class="list menu-set">
+                <ion-item nav-clear menu-close class="item item-icon-left" ui-sref="app.launches" ui-sref-active="bordered">
+                    <i class="icon ln-rocket"></i>Launches
+                </ion-item>
+                <!-- <ion-item nav-clear menu-close class="item item-icon-left" ui-sref="app.settings" ui-sref-active="bordered" ng-show="authenticated">
+                    <i class="icon ln-gear2"></i>Settings
+                </ion-item> -->
+                <ion-item nav-clear menu-close class="item item-icon-left" ui-sref="access.login" ui-sref-active="bordered" ng-hide="authenticated">
+                    <i class="icon ln-arrow-right2"></i>Account Login
+                </ion-item>
+                <ion-item nav-clear menu-close class="item item-icon-left" ui-sref="access.login" ui-sref-active="bordered" ng-hide="authenticated">
+                    <i class="icon ln-clock2"></i>Account Signup
+                </ion-item>
+                <ion-item nav-clear menu-close class="item item-icon-left item-complex" ng-click="userLogout()" ui-sref-active="bordered" ng-show="authenticated">
+                    <div class="item-content"><i class="icon ln-arrow-left2"></i>Logout</div>
+                </ion-item>
+                <ion-item nav-clear menu-close class="item item-icon-left" ui-sref="app.about" ui-sref-active="bordered">
+                    <i class="icon ln-question"></i>Help / About
+                </ion-item>
+            </div>
+        </ion-content>
+    </ion-side-menu>
+</ion-side-menus>

@@ -1,0 +1,21 @@
+<ion-view>
+  <ion-nav-title>Mission Details</ion-nav-title>
+  <ion-content class="scroll-bg">
+
+    <!-- Launch Detail Card -->
+    <div class="card">
+      <div class="item item-divider">
+        <h2>{{missions[0].name}}</h2>
+      </div>
+      <div class="item item-text-wrap">
+        <p ng-hide="missions[0].description == ''">{{missions[0].description}}</p>
+        <!-- <a class="button button-block button-positive" ng-hide="missions[0].infoURL == ''" href="{{missions[0].infoURL}}" target="_system">Information</a></p> -->
+        <a class="button button-block button-positive" ng-hide="missions[0].infoURL == ''" href="#" onclick="window.open('{{missions[0].infoURL}}', '_system', 'location=yes'); return false;">Information</a></p>
+        <!-- <a class="button button-block button-positive" ng-hide="missions[0].wikiURL == ''" href="{{missions[0].wikiURL}}" target="_system">Wikipedia</a></p> -->
+        <a class="button button-block button-positive" ng-hide="missions[0].wikiURL == ''" href="#" onclick="window.open('{{missions[0].wikiURL}}', '_system', location=yes'); return false;">Wikipedia</a></p>
+      </div>
+
+    </div>
+
+  </ion-content>
+</ion-view>

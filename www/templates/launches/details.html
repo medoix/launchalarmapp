@@ -1,0 +1,44 @@
+<ion-view view-title="Launch Details">
+    <ion-content class="padding-bottom">
+        <!-- <div> -->
+            <div cachedimage class="detail-image" ng-if="launches[0].rocket.imageURL" ng-click="showModal('image', '{{launches[0].rocket.imageURL}}')" style="background: url({{imageSize(launches[0].rocket.imageURL, 320)}}); background-size: 100% 100%; background-position: center top; background-repeat: no-repeat;">
+                <!-- <img ion-img-cache imgloadingsec ng-src="{{imageSize(launches[0].rocket.imageURL, 320)}}"> -->
+                <p class="launchtitle">
+                  <span>{{launches[0].name}}</span>
+                </p>
+                <p class="localtime" ng-if="launches[0].isostart">
+                    <span class="icon-space"><i class="icon ln-calendar3 positive"></i></span><span>Local Time: {{launches[0].isostart | amUtc | amLocal | amDateFormat:'ddd Do MMM YYYY'}}</span><span> @ {{launches[0].isostart | amUtc | amLocal | amDateFormat:'h:mm a'}}</span>
+                </p>
+                <p class="utctime" ng-if="launches[0].isostart">
+                  <span class="icon-space"><i class="icon ln-calendar3 positive"></i></span><span>UTC Time: {{launches[0].isostart | amUtc | amDateFormat:'ddd Do MMM YYYY'}}</span><span> @ {{launches[0].isostart | amUtc | amDateFormat:'h:mm a'}}</span>
+                </p>
+                <p class="launchmap" ng-if="launches[0].location.pads[0].name">
+                  <span class="icon-space"><i class="icon ln-map-marker positive"></i></span><span ng-bind-html="launches[0].location.pads[0].name"></span>
+                </p>
+            </div>
+            <div class="padding-horizontal">
+              <div class="button-bar button-full">
+                <a class="button button-calm" ng-if="launches[0].vidURLs && launches[0].vidURLs != ''" ng-click="linkExternal(launches[0].vidURLs[0])">Launch Stream</a>
+                <a class="button button-assertive" ng-if="launches[0].location.pads[0].name" ng-click="showModal('map', '{{launches[0].location.pads[0].latitude}},{{launches[0].location.pads[0].longitude}}')">Launch Pad Map</a>
+              </div>
+              <div ng-if="launches[0].missions[0].name">
+                <p><h4>Missions & Objectives</h4></p>
+                <!-- <p ng-if="!launches[0].missions[0].name">No mission details available</p> -->
+                <div ng-repeat="m in launches[0].missions">
+                  <p ng-bind-html="m.name"></p>
+                  <p ng-bind-html="m.description"></p>
+                </div>
+              </div>
+              <div ng-if="launches[0].vidURLs && launches[0].vidURLs != ''">
+                <p><h4>Additional Launch Streams</h4></p>
+                <div ng-repeat="video in launches[0].vidURLs">
+                  <div>
+                      <u><a ng-click="linkExternal(video)">{{video}}</a></u>
+                  </div>
+                </div>
+              </div>
+              <br>
+            </div>
+        <!-- </div> -->
+    </ion-content>
+</ion-view>

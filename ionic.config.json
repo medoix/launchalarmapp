@@ -1,0 +1,12 @@
+{
+  "name": "Launch Alarm",
+  "app_id": "7e42c2ae",
+  "gulpStartupTasks": [
+    "sass",
+    "watch"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*"
+  ]
+}

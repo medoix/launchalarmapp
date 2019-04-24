@@ -1,0 +1,20 @@
+<ion-view>
+  <ion-nav-title>Rocket Details</ion-nav-title>
+  <ion-content class="scroll-bg">
+
+    <!-- Launch Detail Card -->
+    <div class="card">
+      <div class="item item-divider">
+        <h2>{{rockets[0].name}}</h2>
+      </div>
+      <div class="item item-text-wrap">
+        <p ng-hide="rockets[0].family.name == ''"><b>Rocket Family:</b> {{rockets[0].family.name}}</p>
+        <p ng-hide="rockets[0].configuration == ''"><b>Configuration:</b> {{rockets[0].configuration}}</p>
+        <a class="button button-block button-positive" ng-hide="rockets[0].infoURL == ''" href="#" onclick="window.open('{{rockets[0].infoURL}}', '_system', 'location=yes'); return false;">Information</a></p>
+        <a class="button button-block button-positive" ng-hide="rockets[0].wikiURL == ''" href="#" onclick="window.open('{{rockets[0].wikiURL}}', '_system', 'location=yes'); return false;">Wikipedia</a></p>
+      </div>
+
+    </div>
+
+  </ion-content>
+</ion-view>
